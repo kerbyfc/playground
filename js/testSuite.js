@@ -30,7 +30,7 @@ define(function () {
 						el.innerHTML += '<div class="' + state + '">'
 							+ text
 							+ ': ' + (res === true || (res && res.join && res.map(function (val) {
-								return val ? stringify(val) : "undefined";
+								return val === null ? 'null' : stringify(val);
 							}).join(' === ')))
 							+ '</div>'
 						;
