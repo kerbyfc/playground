@@ -15,10 +15,15 @@ define(function (require) {
 	output.append = function (el, attrs) {
 		if (typeof el == 'string') {
 			el = document.createElement(el);
+		}
 
-			if(attrs) {
-				$.extend(el, attrs);
+		if (attrs) {
+			if (attrs.text) {
+				el.appendChild(document.createTextNode(attrs.text));
+				delete attrs.text;
 			}
+
+			$.extend(el, attrs);
 		}
 
 		this.el.appendChild(el);
@@ -42,13 +47,13 @@ define(function (require) {
 			;
 		}).join(' ');
 
-		this.append('div', { innerText: text, className: 'log' });
+		this.append('div', { text: text, className: 'log' });
 		console.log.apply(console, arguments);
 	};
 
 
 	output.error = function (msg) {
-		this.append('div', { innerText: msg, className: 'log' }).style.color = 'red';
+		this.append('div', { text: msg, className: 'log' }).style.color = 'red';
 	};
 
 

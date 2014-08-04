@@ -82,7 +82,8 @@
 
 			#output pre.html {
 				margin: 0;
-				width: 100%;
+				left: 10px;
+				right: 10px;
 				height: 200px;
 				padding: 5px;
 				position: absolute;
@@ -173,7 +174,7 @@
 		require(['jquery', 'app'], function ($, App) {
 			var env = window;
 
-			if (env.FormData && env.Blob) {
+			if (env.FormData && env.Blob && env.Promise) {
 				env.app = new App({
 					idTasks: '#tasks',
 					idEditor: '#editor',

@@ -12,7 +12,7 @@ define(['text!../tasks/tasks.json'], function (list) {
 			el.id = 'tasks';
 			el.innerHTML = Object.keys(tasks).map(function (name) {
 				var task = tasks[name];
-				return '<a href="#' + name + '">' + task.name + '</a>';
+				return '<a href="#' + name + (task.rev ? '-' + task.rev : '') + '">' + task.name + '</a>';
 			}).join('<br/>');
 
 			el.addEventListener('click', function () {

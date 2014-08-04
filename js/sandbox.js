@@ -30,8 +30,8 @@ define(function (require) {
 			this.window = sandbox.contentWindow;
 			this.document = this.window.document;
 
-			this.$ = this.window.$ = function (selector) {
-				return $(selector, this.document);
+			this.$ = function (selector) {
+				return $(selector, this.window.document);
 			};
 
 			this.window.simulateEvent = simulateEvent;
@@ -50,7 +50,7 @@ define(function (require) {
 			state = (state === void 0) ? !this.htmlMode : state;
 			this.htmlMode = state;
 
-			this.btn.innerText = state ? 'Hide HTML' : 'Show HTML';
+			this.btn.innerHTML = state ? 'Hide HTML' : 'Show HTML';
 			this.$html && this.$html.remove();
 
 			if (state) {
@@ -106,6 +106,9 @@ define(function (require) {
 				document.write('<script>window.onerror = function () { ' +
 					(this.silent ? 'return true' : 'window.triggerError.apply({}, arguments)') +
 				'; };</script>');
+
+				// Подключаем jQuery
+				document.write('<script src="' + require.toUrl('jquery.js').split('?')[0] +'"></script>');
 
 				// Публикуем код
 				document.write('<script>' + code + '</script>');
