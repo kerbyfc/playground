@@ -3,9 +3,10 @@
 
 
 
+// #1
+console.log([0, 1].size); // 2
 
-console.log([0, 1].size);
-
-var arr = [0, 1, 3];
+// #2
+var arr = [0, 1, 2];
 arr.size = 0;
-console.log(arr);
+console.log(arr); // []
