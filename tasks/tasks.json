@@ -35,6 +35,10 @@
 		"name": "Реализовать класс Futures"
 	},
 
+	"waterfall": {
+		"name": "Реализовать waterfall"
+	},
+
 	"dropdown": {
 		"name": "Dropdown должен наследовать Widget"
 	},
