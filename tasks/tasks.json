@@ -35,6 +35,10 @@
 		"name": "Реализовать класс Futures"
 	},
 
+	"parallel": {
+		"name": "Параллельные вычисления"
+	},
+
 	"waterfall": {
 		"name": "Реализовать waterfall"
 	},
