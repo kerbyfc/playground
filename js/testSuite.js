@@ -12,7 +12,12 @@ define(function () {
 				var fn = suite[text], res;
 
 				try {
-					res = fn();
+					if (fn.length > 0) {
+						res = new Promise(fn);
+					}
+					else {
+						res = fn();
+					}
 				} catch (err) {
 //					console.log(err);
 				}

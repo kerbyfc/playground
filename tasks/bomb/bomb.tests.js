@@ -1,31 +1,27 @@
 ({
-	"delay": function () {
-		return new Promise(function (resolve, reject) {
-			var XBomb = function () {
-				Bomb.apply(this, arguments);
-			};
+	"delay": function (resolve, reject) {
+		var XBomb = function () {
+			Bomb.apply(this, arguments);
+		};
 
-			XBomb.prototype = Object.create(Bomb.prototype);
-			XBomb.prototype.blowUp = reject.bind({}, "fail");
+		XBomb.prototype = Object.create(Bomb.prototype);
+		XBomb.prototype.blowUp = reject.bind({}, "fail");
 
-			new XBomb("OK", .01);
-			setTimeout(resolve.bind({}, true), 1);
-		});
+		new XBomb("OK", .01);
+		setTimeout(resolve.bind({}, true), 1);
 	},
 
-	"message": function () {
-		return new Promise(function (resolve) {
-			var XBomb = function () {
-				Bomb.apply(this, arguments);
-			};
+	"message": function (resolve) {
+		var XBomb = function () {
+			Bomb.apply(this, arguments);
+		};
 
-			XBomb.prototype = Object.create(Bomb.prototype);
+		XBomb.prototype = Object.create(Bomb.prototype);
 
-			XBomb.prototype.blowUp = function () {
-				resolve(["OK", this.message]);
-			};
+		XBomb.prototype.blowUp = function () {
+			resolve(["OK", this.message]);
+		};
 
-			new XBomb("OK", .01);
-		});
+		new XBomb("OK", .01);
 	}
 })

@@ -1,34 +1,30 @@
 ({
-	"#1: foo.resolved": function () {
-		return new Promise(function (resolve, reject) {
-			var foo = new Futures(function (resolve) {
-				resolve(123);
-			});
-
-			foo.then(function (val) {
-				resolve([123, val]);
-			}, function () {
-				reject();
-			});
-
-			setTimeout(reject, 1000);
+	"#1: foo.resolved": function (resolve, reject) {
+		var foo = new Futures(function (resolve) {
+			resolve(123);
 		});
+
+		foo.then(function (val) {
+			resolve([123, val]);
+		}, function () {
+			reject();
+		});
+
+		setTimeout(reject, 1000);
 	},
 
-	"#2: bar.rejected": function () {
-		return new Promise(function (resolve, reject) {
-			var bar = new Futures(function (resolve, reject) {
-				setTimeout(resolve.bind(null, "fail"), 300);
-				setTimeout(reject.bind(null, "ok"), 200);
-			});
-
-			bar.then(function () {
-				reject()
-			}, function (val) {
-				resolve(["ok", val]);
-			});
-
-			setTimeout(reject, 1000);
+	"#2: bar.rejected": function (resolve, reject) {
+		var bar = new Futures(function (resolve, reject) {
+			setTimeout(resolve.bind(null, "fail"), 300);
+			setTimeout(reject.bind(null, "ok"), 200);
 		});
+
+		bar.then(function () {
+			reject()
+		}, function (val) {
+			resolve(["ok", val]);
+		});
+
+		setTimeout(reject, 1000);
 	}
 })
