@@ -9,9 +9,9 @@ waterfall(
 	function () {
 		return 10;
 	},
-	function (val, next) {
+	function (val, done) {
 		setTimeout(function () {
-			next(val + 5);
+			done(val + 5);
 		}, 100);
 	},
 	function (val) {
