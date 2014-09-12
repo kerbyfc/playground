@@ -10,3 +10,4 @@ var args = [1, 2];
 var sum = new Sum(args);
 
 console.log('result:', sum.result); // 3
+console.log(sum instanceof Sum); // true
