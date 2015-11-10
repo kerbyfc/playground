@@ -1,7 +1,7 @@
 define(function (require) {
 	var $ = require('jquery');
 	var $el = $('<a href="#" id="send-result">Send result</a>').appendTo('body');
-	var EMAIL = 'trash@rubaxa.org';
+	var EMAIL = 'alexander.lukin@infowatch.com';
 
 
 	var email ={
