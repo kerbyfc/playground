@@ -4,7 +4,7 @@
 	},
 
 	"script": function () {
-		return [null, !!result.querySelector('script')];
+		return [false, !!result.querySelector('script')];
 	},
 
 	"img": function () {

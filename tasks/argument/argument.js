@@ -8,4 +8,4 @@ function myFunc(a, b, c) {
 }
 
 
-console.log(myFunc('fail', 'bingo!', 'no!'));
+console.log(myFunc('fail', 'done', 'fail'));
