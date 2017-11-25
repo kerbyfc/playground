@@ -1,33 +1,33 @@
 ({
-    "links[6].onclick === null": function (resolve) {
+    "buttons[7].onclick === null": function (resolve) {
         const links = document.querySelectorAll('button');
-        const sliced = typeof links[2].onclick === 'function' && links[6].onclick === null;
+        const sliced = typeof links[1].onclick === 'function' && links[7].onclick === null;
         resolve([sliced, true]);
     },
 
-    "links[1].onclick === null": function (resolve) {
+    "buttons[0].onclick === null": function (resolve) {
         const links = document.querySelectorAll('button');
-        const sliced = typeof links[0].onclick === 'function' && links[1].onclick === null;
+        const sliced = typeof links[1].onclick === 'function' && links[0].onclick === null;
         resolve([sliced, true]);
     },
 
-    "links[2].click() // prints 2": function(resolve) {
+    "buttons[1].click() // prints 1": function(resolve) {
         const links = document.querySelectorAll('button');
         window.printIndex = function(i) {
             console.log(i);
-            resolve([2, i]);
+            resolve([1, i]);
         }
 
-        links[2].click();
+        links[1].click();
     },
 
-    "links[4].click() // prints 4": function(resolve) {
+    "buttons[3].click() // prints 3": function(resolve) {
         const links = document.querySelectorAll('button');
         window.printIndex = function(i) {
             console.log(i);
-            resolve([4, i]);
+            resolve([3, i]);
         }
 
-        links[4].click();
+        links[3].click();
     }
 })
